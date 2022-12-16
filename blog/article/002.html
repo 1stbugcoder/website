@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>二分法求零点--Python实战 - 写bug的代码人</title>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+<link rel="icon" type="image/png" href="images/icon.ico">
+<link rel="stylesheet" type="text/css" href="../css/all.css" />
+<link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+<script src="../js/backTop.js"></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body>
+<!-- Header -->
+<div class="header">
+  <a href="../index.html"> <img src ="images/logo.jpg" width="120" height="60" alt="LOGO"> </a>
+  <h3></h3>
+  <h1>写bug的代码人的博客</h1>
+  <h3></h3>  
+  <h1>Bugcoder's Blog</h1>
+</div>
+
+<!-- 导航栏 -->
+<div class="navbar">
+  <a href="../index.html">博客主页</a>
+  <a href="../friends.html">友情链接</a>
+  <a href="../talk.html">留言板</a>
+  <a href="../about.html">关于</a>
+</div>
+
+<!-- 弹性网格row（内容） -->
+<div class="row">
+  <div class="side">
+  <strong>公告</strong>
+      
+<p>
+1.站长在不借助任何框架下成功搭建了自己的Blog
+</p>
+<p>
+2.若对此网站有相关建议或发现错误，希望可以联系站长，邮箱bugcoderx@qq.com
+</p>
+<p>3.本站新开通一个国内版网站</p>
+ <p>
+ 4.站长正在努力updating博客和网站。。。
+    </p>
+  
+  </div>
+    
+  <div class="main">
+  
+       <h2>二分法求零点--Python实战</h2>   
+      <h3>前言</h3>
+<p>前几天在数学必修一上发现了用信息技术和二分法求函数零点的流程图（如下图）,我就用Python开发了这样一个程序</p>
+
+
+<p><img src="images/002_1.jpg" height="450" weight="300" alt="流程图" /></p>
+
+<h3>功能实现</h3>
+<p>分析可得，图中有a-b的绝对值，先写一个求a-b的绝对值的函数</p>
+
+
+<div id="code">
+<pre><span style="color: #0000ff;">def</span> absolute(a,b):  <span style="color: #008000;">#</span><span style="color: #008000;">a-b的绝对值</span>
+    <span style="color: #0000ff;">if</span> a - b &gt;=<span style="color: #000000;"> 0:
+        x </span>= a -<span style="color: #000000;"> b
+    </span><span style="color: #0000ff;">else</span><span style="color: #000000;">:
+        x </span>= b -<span style="color: #000000;"> a
+    </span><span style="color: #0000ff;">return</span> x</pre>
+</div>
+
+<p>求零点先要有个函数，定义一个函数f(x)</p>
+<div id="code">
+<pre><span style="color: #0000ff;">def</span> f(x):  <span style="color: #008000;">#</span><span style="color: #008000;">f(x)表达式</span>
+    y = x-3
+    <span style="color: #0000ff;">return</span> y</pre>
+</div>
+<p>主逻辑实现</p>
+
+
+<div id="code">
+<pre>output = <span style="color: #800000;">""</span>
+
+<span style="color: #0000ff;">while</span> output == <span style="color: #800000;">""</span>:  <span style="color: #008000;">#</span><span style="color: #008000;">求零点   </span>
+    c = (a + b) /2  <span style="color: #008000;">#</span><span style="color: #008000;">取区间的中点</span>
+    <span style="color: #0000ff;">if</span> f(a) * f(c) &lt; 0:  <span style="color: #008000;">#</span><span style="color: #008000;">看区间的前半段是否存在零点</span>
+        b =<span style="color: #000000;"> c
+        </span><span style="color: #0000ff;">if</span> absolute(a,b) &lt; e:  <span style="color: #008000;">#</span><span style="color: #008000;">检验结果是否符合精确度</span>
+            output =<span style="color: #000000;"> a
+            </span><span style="color: #0000ff;">print</span>(<span style="color: #800000;">"</span><span style="color: #800000;">x=</span><span style="color: #800000;">"</span><span style="color: #000000;">,output)
+    </span><span style="color: #0000ff;">else</span>:  <span style="color: #008000;">#</span><span style="color: #008000;">若区间的前半段不存在零点，则</span>
+        <span style="color: #0000ff;">if</span> f(c) == 0:  <span style="color: #008000;">#</span><span style="color: #008000;">计算区间的中点是否为零点</span>
+             output =<span style="color: #000000;"> c
+             </span><span style="color: #0000ff;">print</span>(<span style="color: #800000;">"</span><span style="color: #800000;">x=</span><span style="color: #800000;">"</span><span style="color: #000000;">,output)
+        </span><span style="color: #0000ff;">else</span>:  <span style="color: #008000;">#</span><span style="color: #008000;">接着算后半段是否存在零点</span>
+             a =<span style="color: #000000;"> c
+             </span><span style="color: #0000ff;">if</span> absolute(a,b) &lt;<span style="color: #000000;"> e:
+                 output </span>=<span style="color: #000000;"> a
+                 </span><span style="color: #0000ff;">print</span>(<span style="color: #800000;">"</span><span style="color: #800000;">x=</span><span style="color: #800000;">"</span><span style="color: #000000;">,output)
+
+</span><span style="color: #0000ff;">if</span> output != <span style="color: #800000;">""</span><span style="color: #000000;">:
+    </span><span style="color: #0000ff;">print</span>(<span style="color: #800000;">"</span><span style="color: #800000;">将X的值代入表达式得，函数值为</span><span style="color: #800000;">"</span>,f(float(output)))</pre>
+</div>
+<p>完整代码如下</p>
+
+
+<div id="code">
+<pre>a = float(input(<span style="color: #800000;">"</span><span style="color: #800000;">a </span><span style="color: #800000;">"</span><span style="color: #000000;">))
+b </span>= float(input(<span style="color: #800000;">"</span><span style="color: #800000;">b </span><span style="color: #800000;">"</span>)) <span style="color: #008000;">#</span><span style="color: #008000;">取值区间为(a,b)</span>
+e = float(input(<span style="color: #800000;">"</span><span style="color: #800000;">&epsilon; </span><span style="color: #800000;">"</span>)) <span style="color: #008000;">#</span><span style="color: #008000;">精确度</span>
+        
+<span style="color: #0000ff;">def</span> f(x):  <span style="color: #008000;">#</span><span style="color: #008000;">f(x)表达式</span>
+    y = x-3
+    <span style="color: #0000ff;">return</span><span style="color: #000000;"> y
+    
+</span><span style="color: #0000ff;">def</span> absolute(a,b):  <span style="color: #008000;">#</span><span style="color: #008000;">a-b的绝对值</span>
+    <span style="color: #0000ff;">if</span> a - b &gt;=<span style="color: #000000;"> 0:
+        x </span>= a -<span style="color: #000000;"> b
+    </span><span style="color: #0000ff;">else</span><span style="color: #000000;">:
+        x </span>= b -<span style="color: #000000;"> a
+    </span><span style="color: #0000ff;">return</span><span style="color: #000000;"> x
+
+output </span>= <span style="color: #800000;">""</span>
+
+<span style="color: #0000ff;">while</span> output == <span style="color: #800000;">""</span>:  <span style="color: #008000;">#</span><span style="color: #008000;">求零点   </span>
+    c = (a + b) /2  <span style="color: #008000;">#</span><span style="color: #008000;">取区间的中点</span>
+    <span style="color: #0000ff;">if</span> f(a) * f(c) &lt; 0:  <span style="color: #008000;">#</span><span style="color: #008000;">看区间的前半段是否存在零点</span>
+        b =<span style="color: #000000;"> c
+        </span><span style="color: #0000ff;">if</span> absolute(a,b) &lt; e:  <span style="color: #008000;">#</span><span style="color: #008000;">检验结果是否符合精确度</span>
+            output =<span style="color: #000000;"> a
+            </span><span style="color: #0000ff;">print</span>(<span style="color: #800000;">"</span><span style="color: #800000;">x=</span><span style="color: #800000;">"</span><span style="color: #000000;">,output)
+    </span><span style="color: #0000ff;">else</span>:  <span style="color: #008000;">#</span><span style="color: #008000;">若区间的前半段不存在零点，则</span>
+        <span style="color: #0000ff;">if</span> f(c) == 0:  <span style="color: #008000;">#</span><span style="color: #008000;">计算区间的中点是否为零点</span>
+             output =<span style="color: #000000;"> c
+             </span><span style="color: #0000ff;">print</span>(<span style="color: #800000;">"</span><span style="color: #800000;">x=</span><span style="color: #800000;">"</span><span style="color: #000000;">,output)
+        </span><span style="color: #0000ff;">else</span>:  <span style="color: #008000;">#</span><span style="color: #008000;">接着算后半段是否存在零点</span>
+             a =<span style="color: #000000;"> c
+             </span><span style="color: #0000ff;">if</span> absolute(a,b) &lt;<span style="color: #000000;"> e:
+                 output </span>=<span style="color: #000000;"> a
+                 </span><span style="color: #0000ff;">print</span>(<span style="color: #800000;">"</span><span style="color: #800000;">x=</span><span style="color: #800000;">"</span><span style="color: #000000;">,output)
+
+</span><span style="color: #0000ff;">if</span> output != <span style="color: #800000;">""</span><span style="color: #000000;">:
+    </span><span style="color: #0000ff;">print</span>(<span style="color: #800000;">"</span><span style="color: #800000;">将X的值代入表达式得，函数值为</span><span style="color: #800000;">"</span>,f(float(output)))</pre>
+</div>
+<h3>异常处理</h3>
+<p>考虑与用户交互的地方只有获取a,b,&epsilon;的值，所以只需在input函数前加上try语句，在之后加except和else语句。同时为使引发错误后重新获取a,b,&epsilon;的值，在最前面再加上while循环</p>
+<p>之后我们再稍微润色润色代码，最终如下［这种写法比没有main()运行1万次快0.2秒（测试环境：Pydroid3）］</p>
+
+
+<div id="code">
+<pre><span style="color: #0000ff;">def</span><span style="color: #000000;"> main():
+    
+    </span><span style="color: #008000;">#</span><span style="color: #008000;">import math</span>
+    
+    <span style="color: #0000ff;">print</span>(<span style="color: #800000;">"""</span><span style="color: #800000;">说明
+本程序利用二分法求函数零点，请输入区间(a,b)的左右端点a,b和精确度&epsilon;。
+为确保结果准确，所输入的a,b所对应的函数值最好为一正一负。</span><span style="color: #800000;">"""</span><span style="color: #000000;">)
+    </span><span style="color: #0000ff;">while</span><span style="color: #000000;"> True:
+        </span><span style="color: #0000ff;">try</span>:  <span style="color: #008000;">#</span><span style="color: #008000;">异常处理</span>
+            a = float(input(<span style="color: #800000;">"</span><span style="color: #800000;">a </span><span style="color: #800000;">"</span><span style="color: #000000;">))
+            b </span>= float(input(<span style="color: #800000;">"</span><span style="color: #800000;">b </span><span style="color: #800000;">"</span>)) <span style="color: #008000;">#</span><span style="color: #008000;">取值区间为(a,b)</span>
+            e = float(input(<span style="color: #800000;">"</span><span style="color: #800000;">&epsilon; </span><span style="color: #800000;">"</span>)) <span style="color: #008000;">#</span><span style="color: #008000;">精确度</span>
+        <span style="color: #0000ff;">except</span><span style="color: #000000;">:
+            </span><span style="color: #0000ff;">print</span>(<span style="color: #800000;">"</span><span style="color: #800000;">非法的输入,请重新输入</span><span style="color: #800000;">"</span><span style="color: #000000;">)
+        </span><span style="color: #0000ff;">else</span>:  <span style="color: #008000;">#</span><span style="color: #008000;">若无异常，则执行以下代码</span>
+            <span style="color: #0000ff;">def</span> f(x):  <span style="color: #008000;">#</span><span style="color: #008000;">f(x)表达式</span>
+                y = x-3
+                <span style="color: #0000ff;">return</span><span style="color: #000000;"> y
+    
+            </span><span style="color: #0000ff;">def</span> absolute(a,b):  <span style="color: #008000;">#</span><span style="color: #008000;">a-b的绝对值</span>
+                <span style="color: #0000ff;">if</span> a - b &gt;=<span style="color: #000000;"> 0:
+                    x </span>= a -<span style="color: #000000;"> b
+                </span><span style="color: #0000ff;">else</span><span style="color: #000000;">:
+                    x </span>= b -<span style="color: #000000;"> a
+                </span><span style="color: #0000ff;">return</span><span style="color: #000000;"> x
+
+            output </span>= <span style="color: #800000;">""</span>
+
+            <span style="color: #0000ff;">while</span> output == <span style="color: #800000;">""</span>:  <span style="color: #008000;">#</span><span style="color: #008000;">求零点   </span>
+                c = (a + b) /2  <span style="color: #008000;">#</span><span style="color: #008000;">取区间的中点</span>
+                <span style="color: #0000ff;">if</span> f(a) * f(c) &lt; 0:  <span style="color: #008000;">#</span><span style="color: #008000;">看区间的前半段是否存在零点</span>
+                    b =<span style="color: #000000;"> c
+                    </span><span style="color: #0000ff;">if</span> absolute(a,b) &lt; e:  <span style="color: #008000;">#</span><span style="color: #008000;">检验结果是否符合精确度</span>
+                        output =<span style="color: #000000;"> a
+                        </span><span style="color: #0000ff;">print</span>(<span style="color: #800000;">"</span><span style="color: #800000;">x=</span><span style="color: #800000;">"</span><span style="color: #000000;">,output)
+                </span><span style="color: #0000ff;">else</span>:  <span style="color: #008000;">#</span><span style="color: #008000;">若区间的前半段不存在零点，则</span>
+                    <span style="color: #0000ff;">if</span> f(c) == 0:  <span style="color: #008000;">#</span><span style="color: #008000;">计算区间的中点是否为零点</span>
+                        output =<span style="color: #000000;"> c
+                        </span><span style="color: #0000ff;">print</span>(<span style="color: #800000;">"</span><span style="color: #800000;">x=</span><span style="color: #800000;">"</span><span style="color: #000000;">,output)
+                    </span><span style="color: #0000ff;">else</span>:  <span style="color: #008000;">#</span><span style="color: #008000;">接着算后半段是否存在零点</span>
+                        a =<span style="color: #000000;"> c
+                        </span><span style="color: #0000ff;">if</span> absolute(a,b) &lt;<span style="color: #000000;"> e:
+                            output </span>=<span style="color: #000000;"> a
+                            </span><span style="color: #0000ff;">print</span>(<span style="color: #800000;">"</span><span style="color: #800000;">x=</span><span style="color: #800000;">"</span><span style="color: #000000;">,output)
+
+            </span><span style="color: #0000ff;">if</span> output != <span style="color: #800000;">""</span><span style="color: #000000;">:
+                </span><span style="color: #0000ff;">print</span>(<span style="color: #800000;">"</span><span style="color: #800000;">将X的值代入表达式得，函数值为</span><span style="color: #800000;">"</span><span style="color: #000000;">,f(float(output)))
+            </span><span style="color: #0000ff;">break</span>  <span style="color: #008000;">#</span><span style="color: #008000;">结束引发异常后使其继续能够输入的while循环。</span>
+            
+<span style="color: #0000ff;">if</span> <span style="color: #800080;">__name__</span> == <span style="color: #800000;">'</span><span style="color: #800000;">__main__</span><span style="color: #800000;">'</span><span style="color: #000000;">:
+    main()</span></pre>
+</div>
+ 
+    <p></p>   
+    <p>Posted 2022-11-25 15:24 写bug的代码人</p>
+    <!--返回顶部按钮-->
+<button onclick="topFunction()" id="BtnTop" title="回顶部">返回顶部</button>
+
+<div id="gitalk-container"></div>
+    <script>
+    var gitalk = new Gitalk({
+        clientID: '303bfc1b15c74584cfa4', //clientID 
+        clientSecret: '64abb5f184ed4c137d1fd9931f8466242e3ba250', //clientSecret
+        repo: 'gitalk-comments', // 评论仓库名
+        owner: '1stbugcoder',
+        admin: ['1stbugcoder'], //管理人
+        id: 'article002', // 返回当前 URL 的路径部分作为id
+        language:'zh-CN', //语言
+        distractionFreeMode: false  // 无干扰模式
+    })
+    gitalk.render('gitalk-container')
+    </script>
+     
+     
+     
+     
+     
+  </div><!-- 这里是main所对应的div -->
+  
+</div>
+
+<!-- 页脚 -->
+<div class="footer">
+  <p>
+    Copyright © 2022 写bug的代码人
+    </p>
+    <p>Powered By 写bug的代码人</p>
+    <p>
+    <span id="runtime_span"></span>
+    <script src="../js/time.js" type="text/javascript"></script>
+    </p>
+    
+</div>
+
+</body>
+</html>
