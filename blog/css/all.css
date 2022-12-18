@@ -5,7 +5,8 @@
 /* 设置 body 的样式 */
 body {
   font-family: Arial;
-  margin: 0;
+  margin: 0 auto;
+  width: 71%;
 }
 
 /* 页眉/LOGO */
