@@ -139,4 +139,9 @@ a:hover {
   .main{
     padding: 20px;
   }
+  body {
+  font-family: Arial;
+  margin: 0 auto;
+  width: 100%;
+}
 }
