@@ -1,37 +1,31 @@
-# bugcoder1
+# 写bug的代码人
 
-#### 介绍
-写bug的代码人的个人网站
+这是写bug的代码人的网站源码，**由于这个储存库由于网站更新的必要，会时不时的删除并新建**，若想查看或分支该网站的源码请转到以下链接  
 
-#### 软件架构
-软件架构说明
+[点击访问源码(Github)](https://github.com/1stbugcoder/website)
 
+[点击访问源码(Gitee)](https://gitee.com/bugcoder1/website)
 
-#### 安装教程
+以下是该网站的链接
 
-1.  xxxx
-2.  xxxx
-3.  xxxx
+[点击访问(国际版)](https://1stbugcoder.github.io/)
 
-#### 使用说明
+[点击访问](https://bugcoder1.gitee.io/)
 
-1.  xxxx
-2.  xxxx
-3.  xxxx
+更多有关此网站的信息请转到网站中的“关于”界面
 
-#### 参与贡献
+# bugcoder 
 
-1.  Fork 本仓库
-2.  新建 Feat_xxx 分支
-3.  提交代码
-4.  新建 Pull Request
+This is the source code of the site. ** This repository will be deleted and created from time to time due to the need to update the site **. If you want to view or branch the source code of this site, please go to the following link
 
+[Source Code(GitHub)](https://github.com/1stbugcoder/website)
 
-#### 特技
+[Source Code(Gitee)](https://gitee.com/bugcoder1/website)
 
-1.  使用 Readme\_XXX.md 来支持不同的语言，例如 Readme\_en.md, Readme\_zh.md
-2.  Gitee 官方博客 [blog.gitee.com](https://blog.gitee.com)
-3.  你可以 [https://gitee.com/explore](https://gitee.com/explore) 这个地址来了解 Gitee 上的优秀开源项目
-4.  [GVP](https://gitee.com/gvp) 全称是 Gitee 最有价值开源项目，是综合评定出的优秀开源项目
-5.  Gitee 官方提供的使用手册 [https://gitee.com/help](https://gitee.com/help)
-6.  Gitee 封面人物是一档用来展示 Gitee 会员风采的栏目 [https://gitee.com/gitee-stars/](https://gitee.com/gitee-stars/)
+Here is a link to the site 
+
+[Click Access(International)](https://1stbugcoder.github.io/)
+
+[Click Access](https://bugcoder1.gitee.io/)
+
+For more information about this site, please go to the "About" screen on the site
