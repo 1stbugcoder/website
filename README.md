@@ -16,7 +16,7 @@
 
 # bugcoder 
 
-This is the source code of the site. ** This repository will be deleted and created from time to time due to the need to update the site **. If you want to view or branch the source code of this site, please go to the following link
+This is the source code of the site. **This repository will be deleted and created from time to time due to the need to update the site**. If you want to view or branch the source code of this site, please go to the following link
 
 [Source Code(GitHub)](https://github.com/1stbugcoder/website)
 
