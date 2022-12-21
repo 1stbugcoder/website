@@ -1,6 +1,6 @@
 # 写bug的代码人
 
-这是写bug的代码人的网站源码，**由于这个储存库由于网站更新的必要，会时不时的删除并新建**，若想查看或分支该网站的源码请转到以下链接  
+这是写bug的代码人的网站源码
 
 [点击访问源码(Github)](https://github.com/1stbugcoder/website)
 
@@ -14,9 +14,12 @@
 
 更多有关此网站的信息请转到网站中的“关于”界面
 
+
+
+
 # bugcoder 
 
-This is the source code of the site. **This repository will be deleted and created from time to time due to the need to update the site**. If you want to view or branch the source code of this site, please go to the following link
+This is the source code of the site.
 
 [Source Code(GitHub)](https://github.com/1stbugcoder/website)
 
